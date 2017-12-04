@@ -1,3 +1,18 @@
+<?php
+	
+	if(!session_start()) {
+		header("Location: error.php");
+		exit;
+	}
+	
+	$loggedIn = empty($_SESSION['loggedin']) ? false : $_SESSION['loggedin'];
+	if (!$loggedIn) {
+		header("Location: login.php");
+		exit;
+	}
+	
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -9,18 +24,14 @@
     <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
     <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
     
-    <script>
-        $(function(){
-            $("input[type=submit]").button();
-        });
-    </script>
+
 </head>
 <body>
 	<div id="mainContainer">
         	<div class="titleWrapper"><h1>MovieInfo</h1></div>
     <div id="loginWidget" class="ui-widget">
         
-        <h1 class="ui-widget-header" style="border-radius: 10px 10px 0 0;">Login</h1>
+        <h1 class="ui-widget-header" style="border-radius: 10px 10px 0 0;">Confirm Account Deletion</h1>
         
         <?php
             if ($error) {
@@ -28,10 +39,13 @@
             }
         ?>
         
-        <form action="login.php" method="POST">
+        <form action="deleteAccount.php" method="POST">
             
-            <input type="hidden" name="action" value="do_login">
+            <input type="hidden" name="action" value="deleteAccount">
             
+            <div class="stack">
+    			<h3>To delete your account, confirm your username and password.</h3>	
+            </div>
             <div class="stack">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" class="ui-widget-content ui-corner-all" autofocus value="<?php print $username; ?>">
@@ -43,11 +57,10 @@
             </div>
             
             <div class="stack">
-                <input type="submit" value="Submit">
+                <input type="submit" value="Delete">
             </div>
         </form>
     </div>
-    <div class="logoutWrapper"><button class="logoutButton" onclick="location.href='register.php';">Sign Up</button></div>
-    <div class="logoutWrapper"><button class="logoutButton" onclick="location.href='index.html';">Cancel</button></div>
+    <div class="logoutWrapper"><button class="logoutButton" onclick="location.href='user_form.php';">Cancel</button></div>
 </body>
 </html>

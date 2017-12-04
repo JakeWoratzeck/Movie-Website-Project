@@ -6,22 +6,20 @@
 	}
 	
 	$loggedIn = empty($_SESSION['loggedin']) ? false : $_SESSION['loggedin'];
-	
-	if ($loggedIn) {
-		header("Location: membersArea.php");
+	if (!$loggedIn) {
+		header("Location: login.php");
 		exit;
 	}
 	
-	
 	$action = empty($_POST['action']) ? '' : $_POST['action'];
 	
-	if ($action == 'do_login') {
-		handle_login();
+	if ($action == 'deleteAccount') {
+		handle_deletion($loggedIn);
 	} else {
-		login_form();
+		delete_form();
 	}
 	
-	function handle_login() {
+	function handle_deletion($loggedIn) {
 	
 		$username = empty($_POST['username']) ? '' : $_POST['username'];
 		$password = empty($_POST['password']) ? '' : $_POST['password'];
@@ -32,33 +30,36 @@
 		    die('Could not connect: ' . mysqli_error($con));
 		}
 		
-		$sql="SELECT * FROM Users WHERE username = '" . $username . "'";
+		$sql="SELECT * FROM Users WHERE username = '" . $loggedIn . "'";
 		
 		$result = mysqli_query($con,$sql);
 		
 		
 		$row = mysqli_fetch_array($result);
 			
-	//check with database here
-			if ($password == $row['password'] && $password != "") {
-				$_SESSION['loggedin'] = $username;
-				header("Location: membersArea.php");
+			if ($password == $row['password'] && $password != "" && $username == $row['username']) {
+				$delete_sql = "DELETE FROM Users WHERE username = '" . $loggedIn . "';";
+				mysqli_query($con, $delete_sql);
+				header("Location: logout.php");
+				exit();
 				
 			} 
 			else {	
-				$error = 'Error: Incorrect username or password';
-				require "login_form.php";
+				$error = 'Incorrect username or password';
+				require "delete_form.php";
 				
 			}	
 		
 		
 	}
 	
-	function login_form() {
+	function delete_form() {
 		$username = "";
 		$error = "";
-		require "login_form.php";
+		require "delete_form.php";
 	}
 	
 	
 ?>
+
+

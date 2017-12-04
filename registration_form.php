@@ -20,17 +20,17 @@
         	<div class="titleWrapper"><h1>MovieInfo</h1></div>
     <div id="loginWidget" class="ui-widget">
         
-        <h1 class="ui-widget-header" style="border-radius: 10px 10px 0 0;">Login</h1>
+        <h1 class="ui-widget-header" style="border-radius: 10px 10px 0 0;">Registration</h1>
         
         <?php
             if ($error) {
                 print "<div class=\"ui-state-error\">$error</div>\n";
             }
         ?>
-        
-        <form action="login.php" method="POST">
+    
+        <form action="register.php" method="POST">
             
-            <input type="hidden" name="action" value="do_login">
+            <input type="hidden" name="action" value="do_registration">
             
             <div class="stack">
                 <label for="username">Username:</label>
@@ -38,16 +38,31 @@
             </div>
             
             <div class="stack">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" class="ui-widget-content ui-corner-all"  value="<?php print $firstName; ?>">
+            </div>
+            
+            <div class="stack">
+                <label for="username">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" class="ui-widget-content ui-corner-all" value="<?php print $lastName; ?>">
+            </div>
+            
+            <div class="stack">
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" class="ui-widget-content ui-corner-all">
+            </div>
+            
+           <div class="stack">
+                <label for="password">Confirm Password:</label>
+                <input type="password" id="passwordConfirm" name="passwordConfirm" class="ui-widget-content ui-corner-all">
             </div>
             
             <div class="stack">
                 <input type="submit" value="Submit">
             </div>
-        </form>
+        </form> 
     </div>
-    <div class="logoutWrapper"><button class="logoutButton" onclick="location.href='register.php';">Sign Up</button></div>
-    <div class="logoutWrapper"><button class="logoutButton" onclick="location.href='index.html';">Cancel</button></div>
+    
+    <div class="logoutWrapper"><button class="logoutButton" onclick="location.href='login.php';">Cancel</button></div>
 </body>
 </html>

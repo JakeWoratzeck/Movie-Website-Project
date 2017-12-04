@@ -33,13 +33,13 @@
    			})
    		});
    		
-   		
+   		//NEED TO POPULATE COMING SOON
    		$( function() {
    			var comingSoonMovies = [
-   				["roguePoster.jpeg", "12/16", "Rogue One"],
-   				["collateralPoster.jpg", "12/16", "Collateral Beauty"],
-   				["assassinPoster.jpg", "12/21", "Assassin's Creed"],
-   				["whyPoster.jpg", "12/23", "Why Him?"]
+   				["jediPoster.jpg", "12/17", "Star Wars: The Last Jedi"],
+   				["jumanjiPoster.jpg", "12/20", "Jumanji"],
+   				["pitchPoster.png", "12/22", "Pitch Perfect 3"],
+   				["pantherPoster.jpg", "2/16", "Black Panther"]
    			];
    			
    			
@@ -47,43 +47,32 @@
    				$("#posterBox").append("<div class='sideBySide'> <img class='posterPic' src='Posters/" + comingSoonMovies[i][0] + "'> <p>" + comingSoonMovies[i][1] + "</p> <p>" + comingSoonMovies[i][2] + "</p> </div>");
    			}
    		});
-   			
-   			
+
+   		
+   		//Fetches getmovie.php which selects the movie selected from the dropdown and returns
+   		//html to be inserted into "movieDisplay"
    		function getMovie(movieTitle) {
-                var xmlHttp = new XMLHttpRequest();
-    
-                xmlHttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                    	var movies = JSON.parse(xmlHttp.responseText);
-                    	var i;
-                    	for(i=0; i < movies.length; i++){
-                    		if(movieTitle == movies[i].title){
-                    			var selectedMovie = movies[i];
-                    		}
-                    	
-                    	}
-            
-                    	document.getElementById("titleArea").innerHTML = selectedMovie.title;
-                    	document.getElementById("posterArea").innerHTML = "<img class='posterPic' src='Posters/" + selectedMovie.poster + "' alt='" +selectedMovie.title + "'>";
-                    	document.getElementById("descriptionArea").innerHTML = selectedMovie.description;
-                    	document.getElementById("trailerArea").innerHTML = "<iframe id='video' src='https://www.youtube.com/embed/" + selectedMovie.trailer + "' frameborder='0' allowfullscreen></iframe>";
-                    	document.getElementById("ratingArea").innerHTML = selectedMovie.rating;
-                    }	 	
-                }
-                document.getElementById('titleArea').innerHTML = "Loading...";
+        	xmlhttp = new XMLHttpRequest();
+        	xmlhttp.onreadystatechange = function() {
+            	if (this.readyState == 4 && this.status == 200) {
+                	document.getElementById("movieDisplay").innerHTML = this.responseText;
+            	}
+        	};
+        	
+
+        	document.getElementById('posterArea').innerHTML = "Loading...";
+        	
+        	xmlhttp.open("GET","getmovie.php?q="+movieTitle,true);
+        	xmlhttp.send();
+    	}
                 
-                xmlHttp.open("GET", "movieData.json", true);
-                
-                xmlHttp.send();
-                
-        } 
-            
-            
+       
    		</script>
    		
    		
     </head>
     
+   
     <body>
         <div id="mainContainer">
         	<div class="titleWrapper"><h1>MovieInfo</h1></div>
@@ -91,43 +80,39 @@
         	<br>
         	
         	<form method="GET">
+        		
         		<select name="selectMenu" id="selectMenu">
         			<option disabled selected>Current Movies</option>
         			<optgroup label="Family">
-        				<option value="Moana">Moana</option>
-        				<option value="Trolls">Trolls</option>
+        				<option value="Coco">Coco</option>
         			</optgroup>
         			
-        			<optgroup label="Horror/Thriller">
-        				<option value="Arrival">Arrival</option>
-        				<option value="Incarnate">Incarnate</option>
+        			<optgroup label="Thriller/Horror">
+        				<option value="Murder on the Orient Express">Murder on the Orient Express</option>
         			</optgroup>
         			
         			<optgroup label="Action">
-        				<option value="Fantastic Beasts and Where to Find Them">Fantastic Beasts and Where to Find Them</option>
-        				<option value="Doctor Strange">Doctor Strange</option>
-        				<option value="Allied">Allied</option>
+        				<option value="Darkest Hour">Darkest Hour</option>
+        				<option value="Thor: Ragnarok">Thor: Ragnarok</option>
         			</optgroup>	
         			
         			<optgroup label="Drama">
-        				<option value="Hacksaw Ridge">Hacksaw Ridge</option>
+        				<option value="Roman J Israel, ESQ.">Roman J Israel, ESQ.</option>
+        				<option value="Call Me By Your Name">Call Me By Your Name</option>
         			</optgroup>
         			
         			<optgroup label="Comedy">
-        				<option value="Almost Christmas">Almost Christmas</option>
-        				<option value="Bad Santa 2">Bad Santa 2</option>
+        				<option value="The Man Who Invented Christmas">The Man Who Invented Christmas</option>
+        				<option value="Daddy''s Home 2">Daddy's Home 2</option>
         			</optgroup>
         			
         		</select>				
         	</form>
         </div> 
         
+        
         <div id="movieDisplay" class="roundBox">
-        	<div id="titleArea"></div>
-        	<div id="ratingArea"></div>
         	<div id="posterArea"><h2>Select a movie above to view information about it</h2></div>
-        	<div id="descriptionArea"></div>
-        	<div id="trailerArea"></div>
                 	
         </div>
         
@@ -143,8 +128,12 @@
         
 		
        	<div class="logoutWrapper roundBox">
-       		<p>You are currently logged in</p>
+       		<?php echo  "<p>Logged in as: " . $loggedIn . "</p>"?>
+       		<button class="logoutButton" onclick="location.href='getUser.php';">Account Details</button>
+       		<br>
+       		<br>
        		<button class="logoutButton" onclick="location.href='logout.php';">Log Out</button>
+
        	</div>
        
        
