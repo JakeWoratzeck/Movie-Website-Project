@@ -1,0 +1,88 @@
+<DOCTYPE html>
+
+    <html>
+        <head>
+            <title>Movie WebApp</title>
+            <meta charset="UTF-8">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+           	
+           	<link href="app.css" rel="stylesheet" type="text/css">
+           
+           <script>
+           	
+           		$( function() {
+   					var insideMovies = [
+   						["moanaPoster.jpg", "Moana"],
+   						["arrivalPoster.jpg", "Arrival"],
+   						["trollsPoster.jpg", "Trolls"],
+   						["santaPoster.jpg", "Bad Santa 2"]
+   					];
+   			
+   					for(var i=0; i < $(insideMovies).length; i++) {
+   						$("#posterBox").append("<div class='sideBySide'> <img class='posterPic' src='Posters/" + 
+   						insideMovies[i][0] + "'> <p>" + insideMovies[i][1] + "</p>");
+   					}
+   				});
+   				
+   				function getVote(int) {
+ 					var xmlhttp = new XMLHttpRequest();
+  				
+  					xmlhttp.onreadystatechange=function() {
+    					if (this.readyState==4 && this.status==200) {
+      						document.getElementById("poll").innerHTML=this.responseText;
+    					}
+  					}
+  		
+  					xmlhttp.open("GET","pollVoteHandler.php?vote="+int,true);
+  					xmlhttp.send();
+				}
+   			
+   			</script>
+        </head>
+        
+        <body>
+        
+        <div id="mainContainer">
+            <div class="titleWrapper"><h1>MovieInfo</h1></div>
+            
+            <br>
+            
+        	<div id="frontDescription" class="roundBox">
+        		<h2>What is MovieInfo?</h2>
+        		<p>MovieInfo is an app used to quickly view information about the latest movies.</p>
+        	</div>
+        	
+        	<br>
+        	
+        	<div id="posterBox" class="roundBox group">
+        		<h2>Some of the Movies Inside</h2>
+        		
+            </div>
+            
+            <br>
+            
+            <div id="poll" class="roundBox">
+				<h3>Have you seen "Moana" yet?</h3>
+				<form>
+					Yes:
+					<input type="radio" name="vote" value="0" onclick="getVote(this.value)">
+				
+					<br>
+				
+					No:
+					<input type="radio" name="vote" value="1" onclick="getVote(this.value)">
+				
+					<br>
+				</form>
+			</div>
+
+			<br>
+        	
+        	<div id="loginWrapper" class="roundBox">
+                <h2>Sign in to access the App!</h2>
+            	<button id="signIn" onclick="location.href='login.php';">Sign In</button>
+            </div>
+            
+        </div>      
+    </body>
+    </html>

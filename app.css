@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic');
+
+#loginWidget {
+    width: 400px;
+    margin: 50px auto;
+    text-align: center;
+}
+#loginWidget > h1 {
+    margin: 0;
+    padding: 2px;
+}
+#loginWidget form {
+    background-color: #EEE;
+    border: 1px solid #DDD;
+    padding: 0.5em 0;
+    border-radius: 0 0 10px 10px;
+}
+#loginWidget form label {
+    width: 95px;
+    text-align: right;
+    display: inline-block;
+}
+#loginWidget div.stack {
+    margin: 1em 0;
+}
+div.ui-state-error {
+    padding: 4px 0;
+}
+div.pageWidget {
+    width: 600px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+/*front page*/
+
+.titleWrapper {
+	background-color: gray;
+	color: white;
+	border-radius: 10px;
+	font-size: 26pt;
+	min-width: 800px;
+	height: 100px;
+	vertical-align: middle;
+	border: 1px black solid;
+	white-space: nowrap;
+	margin: 0 0 5px 0;
+}
+
+.roundBox {
+	background-color: #EEE;
+	border: 1px solid black;
+	border-radius: 10px;
+    text-align: center;
+    margin: 5px;
+}
+
+#frontDescription {
+	width: 450px;
+	margin: auto;
+}
+
+#mainContainer {
+	text-align: center;
+	padding: 5px;
+}
+                
+#signIn {
+	width: 400px;
+}
+                
+#loginWrapper {
+	width: 500px;
+    margin: auto;
+    padding: 5px;
+}
+
+* {
+	font-family: 'Didact Gothic', sans-serif;
+
+}
+
+/*membersPage*/
+body {
+	background-image: url(background.jpg);
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+   				
+}
+h1 {
+	margin: 0px;
+}  			
+.posterPic {
+   	height:300px;
+   	width: 202px;
+}
+   		
+#posterBox {
+	padding: 5px;
+	width: 850px;
+	margin: auto;
+	
+}
+	
+.sideBySide {
+	float: left;
+	margin: 5px;
+}
+
+.group:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+#movieDisplay {
+   	width: 800px;
+   	padding: 5px;
+   	margin: auto;
+   	}
+   			
+#titleArea {
+   	font-size: 34pt;
+}
+   			
+#ratingArea {
+   	font-size: 28pt;
+}
+   			
+#video {
+   	width: 560px;
+   	height: 315px;		
+}
+   			
+#descriptionArea {
+   	font-size: 24px;
+   	padding: 3px;
+}
+
+.logoutWrapper {
+	width: 200px;
+	padding: 10px 5px;
+	margin: auto;
+}
+
+.logoutButton {
+	width: 200px;
+	font-size: 13pt;
+}
+
+#poll {
+	width: 250px;
+	text-align: left;
+	margin: auto;
+	padding: 10px;
+}
+
+h3 {
+	margin: 0 0 5px 0;
+}
+
+pollBar {
+	background-color: gray;
+}
