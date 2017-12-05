@@ -35,7 +35,7 @@
         	<div class="titleWrapper"><h1>MovieInfo</h1></div>
     <div id="loginWidget" class="ui-widget">
         
-        <h1 class="ui-widget-header" style="border-radius: 10px 10px 0 0;">Update User Information</h1>
+        <h1 class="ui-widget-header" style="border-radius: 10px 10px 0 0;">Account Details</h1>
         
         <?php
             if ($error) {
