@@ -24,6 +24,11 @@
     <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
     <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
     
+    <script>
+        $(function(){
+            $("input[type=submit]").button();
+        });
+    </script>
 
 </head>
 <body>
