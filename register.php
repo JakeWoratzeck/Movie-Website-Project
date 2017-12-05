@@ -53,12 +53,14 @@
 				return;
 			}
 			
+			$hashedPassword = hash('sha256', $password);
 			$insert_sql = "INSERT INTO Users (firstName, lastName, username, password) VALUES ('" . $firstName . "', '" . 
-			$lastName . "', '" . $username . "', '" . $password . "');";
+			$lastName . "', '" . $username . "', '" . $hashedPassword . "');";
 			
 			if(!mysqli_query($con,$insert_sql)){
 				$error = "User could not be created";
 				require "registration_form.php";
+				return;
 			}
 			else {
 				$_SESSION['loggedin'] = $username;
@@ -69,6 +71,7 @@
 		else {
 			$error = "Please fill out all fields.";
 			require "registration_form.php";
+			return;
 		}
 	}
 				
@@ -79,6 +82,7 @@
 		$username = "";
 		$error = "";
 		require "registration_form.php";
+		return;
 	}
 	
 ?>

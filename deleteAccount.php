@@ -36,8 +36,11 @@
 		
 		
 		$row = mysqli_fetch_array($result);
+		
+		$hashedPassword = hash('sha256', $password);	
 			
-			if ($password == $row['password'] && $password != "" && $username == $row['username']) {
+			if ($hashedPassword == $row['password'] && $password != "" && $username == $row['username']) {
+				
 				$delete_sql = "DELETE FROM Users WHERE username = '" . $loggedIn . "';";
 				mysqli_query($con, $delete_sql);
 				header("Location: logout.php");
@@ -47,6 +50,7 @@
 			else {	
 				$error = 'Incorrect username or password';
 				require "delete_form.php";
+				return;
 				
 			}	
 		
@@ -57,6 +61,7 @@
 		$username = "";
 		$error = "";
 		require "delete_form.php";
+		return;
 	}
 	
 	

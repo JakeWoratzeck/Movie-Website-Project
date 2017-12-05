@@ -40,7 +40,8 @@
 					return;
 				}
 				else{
-					$sql="UPDATE Users SET firstName='" . $firstName . "', lastName='" . $lastName . "', password='" . $password . "' WHERE username='" . $loggedIn . "';";
+					$hashedPassword = hash('sha256', $password);
+					$sql="UPDATE Users SET firstName='" . $firstName . "', lastName='" . $lastName . "', password='" . $hashedPassword . "' WHERE username='" . $loggedIn . "';";
 				}
 			}
 			

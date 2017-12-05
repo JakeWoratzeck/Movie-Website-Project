@@ -39,14 +39,14 @@
 		
 		$row = mysqli_fetch_array($result);
 			
-	//check with database here
-			if ($password == $row['password'] && $password != "") {
+		$hashedPassword = hash('sha256', $password);
+			if ($hashedPassword == $row['password'] && $password != "") {
 				$_SESSION['loggedin'] = $username;
 				header("Location: membersArea.php");
 				
 			} 
 			else {	
-				$error = 'Error: Incorrect username or password';
+				$error = 'Incorrect username or password';
 				require "login_form.php";
 				
 			}	
@@ -58,6 +58,7 @@
 		$username = "";
 		$error = "";
 		require "login_form.php";
+		return;
 	}
 	
 	
