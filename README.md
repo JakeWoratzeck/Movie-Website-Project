@@ -1,9 +1,9 @@
 # Movie-Website-Project
-## CS3380 Final Project
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;## CS3380 Final Project
 
 ## Group Members
-### Jacob Woratzeck (jcw4kd)
-### Taylor Kuttenkuler (not in class)
+### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jacob Woratzeck (jcw4kd)
+### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Taylor Kuttenkuler (not in class)
 
 ## Instance link
-### http://jcw4kd.epizy.com
+### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://jcw4kd.epizy.com
