@@ -149,17 +149,6 @@ h1 {
 	font-size: 13pt;
 }
 
-#poll {
-	width: 250px;
-	text-align: left;
-	margin: auto;
-	padding: 10px;
-}
-
 h3 {
 	margin: 0 0 5px 0;
-}
-
-pollBar {
-	background-color: gray;
 }
