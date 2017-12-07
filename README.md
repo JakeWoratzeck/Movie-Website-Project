@@ -22,3 +22,6 @@
 ### User data can also be updated by editing the information on the “Account Details” page mentioned above. Upon submission, the information the user filled in is used to update their entry in the “Users” table in the database (getUser.php and user_form.php). 
 
 ### Finally, a user can delete data from the database by deleting their account. If a user selects “Delete Account” from the “Account Details” screen, they will be prompted to enter their username and password (delete_form.php). The credentials are validated with the database and, if correct, the entry will be deleted from the database (deleteAccount.php).
+
+## Video Demonstration
+### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://vimeo.com/246302933
