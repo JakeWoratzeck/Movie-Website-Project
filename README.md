@@ -27,7 +27,7 @@
 ### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://vimeo.com/246302933
 
 ## Entity Relationship Diagram
-### ![MovieWebsiteERD](/MovieWebsiteERD.png)
+ ![MovieWebsiteERD](/MovieWebsiteERD.png)
 
 ## Database Schema
 CREATE TABLE `Movies` (
