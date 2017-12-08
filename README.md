@@ -31,19 +31,32 @@
 
 ## Database Schema
 CREATE TABLE `Movies` (
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`id` int(4) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`title` varchar(40) NOT NULL,
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`description` text NOT NULL,
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`rating` varchar(5) NOT NULL,
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`posterImage` varchar(40) NOT NULL,
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`trailerLink` varchar(40) NOT NULL
+
 ); 
 
 CREATE TABLE `Users` (
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`id` int(3) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`firstName` varchar(30) NOT NULL,
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`lastName` varchar(30) NOT NULL,
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`username` varchar(20) NOT NULL UNIQUE,
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`password` varchar(64) NOT NULL
+
 );
 
