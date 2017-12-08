@@ -28,3 +28,14 @@
 
 ## Entity Relationship Diagram
 ### ![MovieWebsiteERD](/MovieWebsiteERD.png)
+
+## Database Schema
+CREATE TABLE `Movies` (
+ 	`id` int(4) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+`title` varchar(40) NOT NULL,  `description` text NOT NULL,  `rating` varchar(5) NOT NULL,  `posterImage` varchar(40) NOT NULL,  `trailerLink` varchar(40) NOT NULL
+); 
+
+CREATE TABLE `Users` (  	`id` int(3) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+`firstName` varchar(30) NOT NULL,  `lastName` varchar(30) NOT NULL,  `username` varchar(20) NOT NULL UNIQUE,  `password` varchar(64) NOT NULL
+);
+
